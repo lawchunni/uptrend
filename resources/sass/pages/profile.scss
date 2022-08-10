@@ -1,0 +1,296 @@
+.profile {
+    h1 {
+        margin: 20px 0;
+    }
+
+    h2 {
+        font-weight: 400;
+        text-align: center;
+    }
+
+    .num {
+        font-weight: 700;
+    }
+
+    .status {
+        padding: 3px 10px;
+        border-radius: 3px;
+        font-size: 14px;
+        color: #fff;
+        &.pending {
+            background-color: $color-pending;
+        }
+        &.confirmed {
+            background-color: $color-confirmed;
+        }
+        &.delivered {
+            background-color: $color-delivered;
+        }
+        &.cancelled {
+            background-color: $color-cancelled;
+        }
+    }
+
+    aside {
+        text-align: right;
+        padding: 50px 0;
+        margin-right: 80px;
+        @media only screen and (max-width: 767px) {
+            text-align: initial;
+            margin-right: 0;
+            margin: 0 auto;
+            display: block;
+        }
+
+        ul {
+            li {
+                padding: 0 0 0 20px;
+                @media only screen and (max-width: 767px) {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 49%;
+                    padding: 0;
+                }
+                a {
+                    display: block;
+                    width: 100%;
+                    padding: 30px 20px;
+                    font-size: 18px;
+                    @include transition();
+                    &.active,
+                    &:hover {
+                        background-color: $color-light;
+                        color: #fff;
+                    }
+
+                    @media only screen and (max-width: 767px) {
+                        padding: 20px;
+                        border-bottom: 1px solid $color-light;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .row {
+        position: relative;
+
+        .status {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+        }
+    }
+
+    .content {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - 250px - 80px - 5px);
+        position: relative;
+
+        @media only screen and (max-width: 767px) {
+            width: 100%;
+        }
+
+        a.btn {
+            padding: 10px 16px;
+            text-decoration: none;
+        }
+
+        .edit_btn {
+            position: absolute;
+            right: 0;
+            top: 10px;
+        }
+    }
+
+    .user_info {
+        border-bottom: 1px solid $color-light;
+        padding-bottom: 20px;
+        margin-top: 60px;
+        .row {
+            margin-bottom: 20px;
+            .title {
+                display: inline-block;
+                font-weight: 700;
+                margin-right: 40px;
+                width: 40%;
+            }
+        }
+    }
+
+    .user_address {
+        padding-top: 20px;
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            color: $color-important;
+            min-width: auto;
+            background-color: unset;
+            border: none;
+            text-decoration: underline;
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .row {
+            margin-bottom: 20px;
+            padding: 20px 10px;
+            position: relative;
+
+            &.hightlight {
+                background-color: $color-featured;
+            }
+            a {
+                text-decoration: underline;
+            }
+            > div {
+                margin-bottom: 10px;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .addr_content {
+            .add_addr {
+                text-align: right;
+                margin-bottom: 20px;
+                @media only screen and (max-width: 767px) {
+                    text-align: left;
+                }
+            }
+
+            .action {
+                > div {
+                    display: inline-block;
+                    margin-right: 12px;
+                }
+            }
+
+            form {
+                display: inline-block;
+            }
+        }
+    }
+
+    .order {
+        .row {
+            border-bottom: 1px solid $color-light;
+            padding: 20px 10px;
+        }
+
+        #order_history_container {
+            margin-top: 60px;
+        }
+
+        .num {
+            margin-bottom: 10px;
+        }
+
+        .order_details {
+            > div {
+                margin-bottom: 10px;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+            table {
+                width: 100%;
+                margin-top: 40px;
+
+                th,
+                td {
+                    text-align: center;
+                    padding: 10px;
+                }
+            }
+        }
+
+        .order_container {
+            .order_heading {
+                margin-bottom: 20px;
+                > div {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .invoice {
+                text-align: right;
+            }
+
+            .summary {
+                margin-top: 20px;
+                > div {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-right {
+    text-align: right;
+}
+.text-align-center,
+.text-center {
+    text-align: center;
+}
+
+.min-width-20 {
+    min-width: 18rem;
+}
+
+.min-width-40 {
+    min-width: 500px;
+}
+
+.text-black {
+    color: #0a0a0a;
+}
+
+.vertical-align-top {
+    vertical-align: top;
+}
+
+.border-grey {
+    border-bottom: 1px solid rgb(227, 227, 227);
+}
+
+.text-transform-capitalize {
+    text-transform: capitalize;
+}
+
+.lh-btn.no-hover.text-transform-capitalize.pending {
+    background-color: rgb(6, 87, 122);
+}
+
+.lh-btn.no-hover.text-transform-capitalize.confirmed {
+    background-color: rgb(7, 101, 18);
+}
+
+.lh-btn.no-hover.text-transform-capitalize.delivered {
+    background-color: rgb(135, 103, 8);
+}
+
+.lh-btn.no-hover.text-transform-capitalize.cancelled {
+    background-color: rgb(148, 7, 7);
+}
+
+.overflow-x-scroll {
+    overflow-x: scroll;
+}
+
+.form form button.lh-btn-delete:hover {
+    background-color: rgb(213, 9, 9);
+    color: rgb(43, 43, 43);
+}

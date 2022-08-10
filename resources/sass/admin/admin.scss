@@ -1,0 +1,115 @@
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: #fbfbfb;
+}
+
+main {
+    margin-top: 90px;
+}
+
+@media (min-width: 991.98px) {
+    main {
+        padding-left: 240px;
+    }
+}
+
+.navbar {
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%);
+
+    .navbar-brand {
+        margin-left: 20px;
+    }
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 98px 0 0; /* Height of navbar */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 100%;
+    }
+
+    div.content {
+        padding: 0;
+    }
+}
+
+.sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.content {
+    padding: 0 20px;
+}
+
+.header_bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    form {
+        max-width: 300px;
+        margin-left: auto;
+    }
+}
+
+table td form {
+    display: inline-block;
+}
+// action button in table
+.action-btn {
+    width: 110px;
+}
+// pagination
+.page-item {
+    .page-link {
+        color: #707070;
+        background-color: #fff;
+        border: 1px solid #dee2e6;
+        &:hover,
+        &:focus {
+            color: #707070;
+            background-color: #e9ecef;
+            border-color: #dee2e6;
+        }
+    }
+    &.active {
+        .page-link {
+            z-index: 3;
+            color: #fff;
+            background-color: #707070;
+            border-color: #707070;
+        }
+    }
+    &.disabled {
+        .page-link {
+            color: #6c757d;
+            background-color: #fff;
+            border-color: #dee2e6;
+        }
+    }
+}
+
+// pages
+@import "dashboard.scss";

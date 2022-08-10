@@ -1,0 +1,73 @@
+.text-gray-300 {
+    color: #dddfeb !important;
+}
+
+.text-gray-800 {
+    color: #5a5c69 !important;
+}
+
+.text-xs {
+    font-size: 0.7rem;
+}
+
+.text-lg {
+    font-size: 1.2rem;
+}
+
+.border-left-primary {
+    border-left: 0.25rem solid #4e73df !important;
+}
+
+.border-left-secondary {
+    border-left: 0.25rem solid #858796 !important;
+}
+
+.border-left-success {
+    border-left: 0.25rem solid #1cc88a !important;
+}
+
+.border-left-info {
+    border-left: 0.25rem solid #36b9cc !important;
+}
+.border-left-warning {
+    border-left: 0.25rem solid #f6c23e !important;
+}
+
+.border-left-danger {
+    border-left: 0.25rem solid #e74a3b !important;
+}
+.border-left-light {
+    border-left: 0.25rem solid #f8f9fc !important;
+}
+
+.border-bottom-light {
+    border-bottom: 0.25rem solid #f8f9fc !important;
+}
+
+.border-left-dark {
+    border-left: 0.25rem solid #5a5c69 !important;
+}
+.hiddenRow {
+    padding: 0 !important;
+    .order_status {
+        border: 1px solid #707070;
+        padding: 20px;
+
+        .submit_btn {
+            margin-top: 10px;
+        }
+    }
+}
+
+.collapse .shipping_info {
+    margin: 20px 0;
+}
+
+// chart
+#productByCategory,
+#productByGender,
+#salesLineChart {
+    min-width: 40%;
+    min-height: 400px;
+    margin: auto;
+}
