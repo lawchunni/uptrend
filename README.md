@@ -1,3 +1,6 @@
+### eCommerce - Uptrend
+- URL: http://uptrend.jennywebservices.xyz/
+
 # First clone from git
 - run ```npm install`` to install the npm packages
 - run ```composer install`` to install the composer packages for php
