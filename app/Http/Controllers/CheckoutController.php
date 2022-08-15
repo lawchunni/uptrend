@@ -363,17 +363,23 @@ class CheckoutController extends Controller
             // go for transaction directly
             $response = Helper::processTransaction($valid, $summary['total'], $latest_order_id);
 
-            $result = Helper::storeTransaction($request, $latest_order_id, $valid['card_number'], $response);
+            if($response) { // json return
+                $result = Helper::storeTransaction($request, $latest_order_id, $valid['card_number'], $response);
 
-            if ($result) {
-                // redirect to invoice
-                session()->flash('success', 'Thank you for your order!');
+                if ($result) {
+                    // redirect to invoice
+                    session()->flash('success', 'Thank you for your order!');
 
-                return redirect()->route('order-history-detail', ['id' => $latest_order_id]);
+                    return redirect()->route('order-history-detail', ['id' => $latest_order_id]);
+                } else {
+                    // redirect back to insert credit card again
+                    return back()->withError('Credit card information incorrect. Please input again.');
+                }
             } else {
-                // redirect back to insert credit card again
-                return back()->withError('Credit card information incorrect. Please input again.');
+                return back()->withError('Payment gateway not found. Please contact the customer services');
             }
+
+            
         } else {
             // start from placing order -> order_product -> transaction
             $order = new Order();
@@ -414,20 +420,25 @@ class CheckoutController extends Controller
                 }
 
                 // ======= transaction start =======
+         
                 $response = Helper::processTransaction($valid, $summary['total'], $order->id);
 
-                $result = Helper::storeTransaction($request, $order->id, $valid['card_number'], $response);
+                if($response) { // json return
+                    $result = Helper::storeTransaction($request, $order->id, $valid['card_number'], $response);
 
-                if ($result) {
-                    // redirect to invoice
-                    session()->flash('success', 'Thank you for your order!');
-                    // send an invoice email to user
-                    // Mail::to(Auth::user())->send(new Invoice(Order::find($order->id)));
+                    if ($result) {
+                        // redirect to invoice
+                        session()->flash('success', 'Thank you for your order!');
+                        // send an invoice email to user
+                        // Mail::to(Auth::user())->send(new Invoice(Order::find($order->id)));
 
-                    return redirect()->route('order-history-detail', ['id' => $order->id]);
+                        return redirect()->route('order-history-detail', ['id' => $order->id]);
+                    } else {
+                        // redirect back to insert credit card again
+                        return back()->withError('Credit card information incorrect. Please input again.');
+                    }
                 } else {
-                    // redirect back to insert credit card again
-                    return back()->withError('Credit card information incorrect. Please input again.');
+                    return back()->withError('Payment gateway not found. Please contact the customer services');
                 }
             } else {
                 session()->flash('error', 'There is error processing the order. Please try again later, or contact our customer service. Sorry for the inconvenience caused.');

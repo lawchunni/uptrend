@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use Throwable;
 use Pacewdd\Bx\_5bx;
 use App\Models\Order;
 use App\Models\Transaction;
@@ -17,16 +18,25 @@ class Helper
      */
     static function processTransaction(array $card_info, mixed $order_total, int $order_id)
     {
-        $transaction = new _5bx(env('BX_LOGIN'), env('BX_KEY'));
+        try {
+            $transaction = new _5bx(env('BX_LOGIN'), env('BX_KEY'));
 
-        $transaction->amount($order_total); // total sale
-        $transaction->card_num($card_info['card_number']); // credit card number
-        $transaction->exp_date($card_info['card_expiry']); // expiry date month and year (august 2022)
-        $transaction->cvv($card_info['card_cvv']); // Card Verification Value (cvv) number
-        $transaction->ref_num($order_id); // reference or invoice number
-        $transaction->card_type($card_info['card_type']); // card type (visa, mastercard, amex)
+            $transaction->amount($order_total); // total sale
+            $transaction->card_num($card_info['card_number']); // credit card number
+            $transaction->exp_date($card_info['card_expiry']); // expiry date month and year (august 2022)
+            $transaction->cvv($card_info['card_cvv']); // Card Verification Value (cvv) number
+            $transaction->ref_num($order_id); // reference or invoice number
+            $transaction->card_type($card_info['card_type']); // card type (visa, mastercard, amex)
 
-        return $transaction->authorize_and_capture(); // JSON object
+            return $transaction->authorize_and_capture(); // JSON object
+    
+        } catch (Throwable $e) {
+            report($e);
+
+            return false;
+        }
+        
+        
     }
 
     /**
