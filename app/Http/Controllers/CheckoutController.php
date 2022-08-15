@@ -422,7 +422,7 @@ class CheckoutController extends Controller
                     // redirect to invoice
                     session()->flash('success', 'Thank you for your order!');
                     // send an invoice email to user
-                    Mail::to(Auth::user())->send(new Invoice(Order::find($order->id)));
+                    // Mail::to(Auth::user())->send(new Invoice(Order::find($order->id)));
 
                     return redirect()->route('order-history-detail', ['id' => $order->id]);
                 } else {
