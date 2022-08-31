@@ -1,5 +1,5 @@
 ### eCommerce - Uptrend
-- URL: http://uptrend.jennywebservices.xyz/
+- URL: https://uptrend.jennypuichingchung.com/
 
 # First clone from git
 - run ```npm install`` to install the npm packages
