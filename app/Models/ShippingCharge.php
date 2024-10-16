@@ -16,4 +16,8 @@ class ShippingCharge extends Model
         'country',
         'charge',
     ];
+
+    protected $date = [
+        'deleted_at'
+    ];
 }

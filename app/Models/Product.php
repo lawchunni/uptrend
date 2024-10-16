@@ -23,6 +23,10 @@ class Product extends Model
         'size_id',
     ];
 
+    protected $date = [
+        'deleted_at'
+    ];
+
     /**
      * Define Relationship, One Product can belongs To one Size
      */

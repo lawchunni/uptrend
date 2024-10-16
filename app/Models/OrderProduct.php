@@ -22,6 +22,10 @@ class OrderProduct extends Pivot
         'size',
     ];
 
+    protected $date = [
+        'deleted_at'
+    ];
+    
     /**
      * Define Relationship, One OrderProduct can belongs To One Order
      */

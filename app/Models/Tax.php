@@ -18,4 +18,9 @@ class Tax extends Model
         'pst',
         'hst',
     ];
+
+    protected $date = [
+        'deleted_at'
+    ];
+
 }

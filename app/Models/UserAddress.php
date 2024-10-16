@@ -20,6 +20,10 @@ class UserAddress extends Model
         'postal_code',
     ];
 
+    protected $date = [
+        'deleted_at'
+    ];
+
     /**
      * Define Table Relationship, One User_address only belongs to One User
      */

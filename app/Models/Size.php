@@ -15,6 +15,10 @@ class Size extends Model
         'name',
     ];
 
+    protected $date = [
+        'deleted_at'
+    ];
+
     /**
      * Define Relationship, One Size can have many Product
      */

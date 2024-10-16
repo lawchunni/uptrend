@@ -12,7 +12,11 @@ class Gender extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name',
+        'name'
+    ];
+
+    protected $date = [
+        'deleted_at'
     ];
 
     /**

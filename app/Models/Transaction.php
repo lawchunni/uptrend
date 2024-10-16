@@ -18,6 +18,10 @@ class Transaction extends Model
         'credit_card_info',
     ];
 
+    protected $date = [
+        'deleted_at'
+    ];
+
     /**
      * Define Relationship, One Transaction can belongs To one Order
      */

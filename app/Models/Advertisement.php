@@ -18,4 +18,8 @@ class Advertisement extends Model
         'pages',
         'area',
     ];
+
+    protected $date = [
+        'deleted_at'
+    ];
 }

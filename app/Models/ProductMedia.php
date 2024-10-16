@@ -16,6 +16,10 @@ class ProductMedia extends Model
         'image',
     ];
 
+    protected $date = [
+        'deleted_at'
+    ];
+
     /**
      * Define Relationship, One Product_media can belongs To One Product
      */

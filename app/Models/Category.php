@@ -17,6 +17,10 @@ class Category extends Model
         'image',
     ];
 
+    protected $date = [
+        'deleted_at'
+    ];
+
     /**
      * Define Relationship, One Category can have many Product
      */

@@ -17,4 +17,8 @@ class Inquiry extends Model
         'phone',
         'message',
     ];
+
+    protected $date = [
+        'deleted_at'
+    ];
 }
